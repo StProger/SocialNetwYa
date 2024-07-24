@@ -3,11 +3,19 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def index():
+def index(request):
 
-    return HttpResponse("Главная страница")
+    template = "posts/index.html"
+    context = {
+        "text": "Это главная страница проекта Yatube"
+    }
+    return render(request, template, context)
 
 
-def group_posts(slug: str):
+def group_posts(request):
 
-    return HttpResponse(f"Группа: {slug}")
+    template = "posts/group_list.html"
+    context = {
+        "text": "Здесь будет информация о группах проекта Yatube"
+    }
+    return render(request, template, context)
