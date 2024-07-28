@@ -11,6 +11,10 @@ class Group(models.Model):
     slug = models.TextField()
     description = models.TextField()
 
+    def __str__(self):
+
+        return self.title
+
 
 class Post(models.Model):
 
@@ -29,4 +33,6 @@ class Post(models.Model):
         related_name='posts'
     )
 
+    def __str__(self):
 
+        return self.text
