@@ -10,7 +10,18 @@
         <main>
           <!-- класс py-5 создает отступы сверху и снизу блока -->
           <div class="container py-5">
-            {{text}}
+              <h1>{{group.title}}</h1>
+              <p>{{group.description}}</p>
+              {% for post in posts %}
+                <arcticle>
+                    <ul>
+                        <li>Автор: {{post.author}}</li>
+                        <li>Дата публикации: {{post.pub_date}}</li>
+                    </ul>
+                    <p>{{post.text}}</p>
+                </arcticle>
+                {% if not forloop.last %} <hr> {% endif %}
+              {% endfor %}
           </div>
         </main>
 </body>
